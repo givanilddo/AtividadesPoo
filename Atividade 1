@@ -1,0 +1,71 @@
+package br.ufpb.codigospoo.fibonacci;
+
+public class fibonacci {
+
+    public static void main(String[] args) {
+        System.out.println("Primeiros 20 números de Fibonacci:");
+
+        for (int i = 0; i < 20; i++) {
+            System.out.print(fibo1(i) + " ");
+        }
+        System.out.println();
+
+        for (int i = 0; i < 20; i++) {
+            System.out.print(fibo2(i) + " ");
+        }
+        System.out.println();
+
+        for (int i = 0; i < 20; i++) {
+            System.out.print(fibo3(i) + " ");
+        }
+        System.out.println();
+    }
+
+    // recursiva
+    public static int fibo1(int n) {
+        if (n <= 1) {
+            return n;
+        }
+        return fibo1(n - 1) + fibo1(n - 2);
+    }
+    //  while
+    public static int fibo3(int n) {
+        if (n <= 1) {
+            return n;
+        }
+
+        int fiboAnterior = 0;
+        int fiboatual = 1;
+        int fiboProximo = 0;
+        int i = 2;
+
+        while (i <= n) {
+            fiboProximo = fiboAnterior + fiboatual;
+            fiboAnterior = fiboatual;
+            fiboatual = fiboProximo;
+            i++;
+        }
+
+        return fiboProximo;
+    }
+
+    // for
+    public static int fibo2(int n) {
+        if (n <= 1) {
+            return n;
+        }
+
+        int fiboAnterior = 0;
+        int fiboatual = 1;
+        int fiboProximo = 0;
+
+        for (int i = 2; i <= n; i++) {
+            fiboProximo = fiboAnterior + fiboatual;
+            fiboAnterior = fiboatual;
+            fiboatual = fiboProximo;
+        }
+
+        return fiboProximo;
+    }
+}
+
